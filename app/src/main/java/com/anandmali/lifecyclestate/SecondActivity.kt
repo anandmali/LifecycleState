@@ -23,9 +23,12 @@ class SecondActivity : AppCompatActivity() {
         Thread.sleep(5000)
         Log.i(logTag, "==> Thread.sleep(5000) ")
 
+        binding.txtActivity.text = logTag
+
         binding.launchActivity.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
+
     }
 
     override fun onStart() {

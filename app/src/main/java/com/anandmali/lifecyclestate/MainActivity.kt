@@ -23,8 +23,18 @@ class MainActivity : AppCompatActivity() {
         Thread.sleep(5000)
         Log.i(logTag, "==> Thread.sleep(5000) ")
 
+        binding.txtActivity.text = logTag
+
         binding.launchActivity.setOnClickListener {
             startActivity(Intent(this, SecondActivity::class.java))
+        }
+
+        binding.showFragment.setOnClickListener {
+            val fragment = BlankFragment.newInstance(MainActivity::class.java.simpleName)
+
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, fragment)
+                .commitNow()
         }
     }
 
