@@ -7,11 +7,11 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.anandmali.lifecyclestate.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class SecondActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val logTag = MainActivity::class.simpleName
+    private val logTag = SecondActivity::class.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         Log.i(logTag, "==> Thread.sleep(5000) ")
 
         binding.launchActivity.setOnClickListener {
-            startActivity(Intent(this, SecondActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
