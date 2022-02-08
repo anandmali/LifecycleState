@@ -23,12 +23,15 @@ class SecondActivity : AppCompatActivity() {
         Thread.sleep(5000)
         Log.i(logTag, "==> Thread.sleep(5000) ")
 
-        binding.txtActivity.text = logTag
+        binding.bindViews()
+    }
 
-        binding.launchActivity.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+    private fun ActivityMainBinding.bindViews() {
+        txtActivity.text = logTag
+
+        launchActivity.setOnClickListener {
+            startActivity(Intent(this@SecondActivity, MainActivity::class.java))
         }
-
     }
 
     override fun onStart() {
