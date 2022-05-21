@@ -3,9 +3,9 @@ package com.anandmali.lifecyclestate
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.anandmali.lifecyclestate.databinding.ActivityMainBinding
+import timber.log.Timber
 
 class SecondActivity : AppCompatActivity() {
 
@@ -18,10 +18,10 @@ class SecondActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Log.i(logTag, "==> onCreate() ")
+        Timber.i("==> onCreate() ")
 
         Thread.sleep(5000)
-        Log.i(logTag, "==> Thread.sleep(5000) ")
+        Timber.i("==> Thread.sleep(5000) ")
 
         binding.bindViews()
     }
@@ -36,37 +36,37 @@ class SecondActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        Log.i(logTag, "==> onStart() ")
+        Timber.i("==> onStart() ")
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.i(logTag, "==> onRestart() ")
+        Timber.i("==> onRestart() ")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i(logTag, "==> onResume() ")
+        Timber.i("==> onResume() ")
     }
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         super.onSaveInstanceState(outState, outPersistentState)
-        Log.i(logTag, "==> onSaveInstanceState() ")
+        Timber.i("==> onSaveInstanceState() ")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i(logTag, "==> onPause() ")
+        Timber.i("==> onPause() ")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i(logTag, "==> onStop() ")
+        Timber.i("==> onStop() ")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i(logTag, "==> onDestroy() ")
+        Timber.i("==> onDestroy() ")
     }
 
 }
