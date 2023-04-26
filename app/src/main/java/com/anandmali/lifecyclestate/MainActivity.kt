@@ -11,7 +11,7 @@ import com.anandmali.lifecyclestate.databinding.ActivityMainBinding
 import com.anandmali.lifecyclestate.location.BoundLocation
 import com.anandmali.lifecyclestate.location.LifeCycleObserver
 import com.anandmali.lifecyclestate.location.MyLocationListener
-import timber.log.Timber
+import logcat.logcat
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,11 +23,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        Timber.i("==> onCreate() ")
-
-        Thread.sleep(5000)
-        Timber.i("==> Thread.sleep(5000) ")
 
         binding.bindViews()
 
@@ -66,37 +61,37 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        Timber.i("==> onStart() ")
+        logcat { "onStart()" }
     }
 
     override fun onRestart() {
         super.onRestart()
-        Timber.i("==> onRestart() ")
+        logcat { "onRestart()" }
     }
 
     override fun onResume() {
         super.onResume()
-        Timber.i("==> onResume() ")
+        logcat { "onResume()" }
     }
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
         super.onSaveInstanceState(outState, outPersistentState)
-        Timber.i("==> onSaveInstanceState() ")
+        logcat { "onSaveInstanceState()" }
     }
 
     override fun onPause() {
         super.onPause()
-        Timber.i("==> onPause() ")
+        logcat { "onPause()" }
     }
 
     override fun onStop() {
         super.onStop()
-        Timber.i("==> onStop() ")
+        logcat { "onStop()" }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Timber.i("==> onDestroy() ")
+        logcat { "onDestroy()" }
     }
 
 }

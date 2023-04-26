@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.anandmali.lifecyclestate.databinding.FragmentBlankBinding
-import timber.log.Timber
+import logcat.logcat
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -19,7 +19,6 @@ private const val ARG_PARAM1 = "param1"
  */
 class BlankFragment : Fragment() {
 
-    private val logTag = BlankFragment::class.java.simpleName
 
     private lateinit var binding: FragmentBlankBinding
 
@@ -27,7 +26,7 @@ class BlankFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Timber.i("==> onAttach() ")
+        logcat { "onAttach()" }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,14 +34,14 @@ class BlankFragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
         }
-        Timber.i("==> onCreate() ")
+        logcat { "onCreate()" }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Timber.i("==> onCreateView() ")
+        logcat { "onCreateView()" }
         // Inflate the layout for this fragment
         binding = FragmentBlankBinding.inflate(inflater, container, false)
         return binding.root
@@ -50,46 +49,43 @@ class BlankFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Timber.i("==> onViewCreated() ")
+        logcat { "onViewCreated()" }
         binding.txt.text = param1
-
-        val ld = this.viewLifecycleOwnerLiveData
-
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        Timber.i("==> onViewStateRestored() ")
+        logcat { "onViewStateRestored()" }
     }
 
     override fun onStart() {
         super.onStart()
-        Timber.i("==> onStart() ")
+        logcat { "onStart()" }
     }
 
     override fun onResume() {
         super.onResume()
-        Timber.i("==> onResume() ")
+        logcat { "onResume()" }
     }
 
     override fun onPause() {
         super.onPause()
-        Timber.i("==> onPause() ")
+        logcat { "onPause()" }
     }
 
     override fun onStop() {
         super.onStop()
-        Timber.i("==> onStop() ")
+        logcat { "onStop()" }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        Timber.i("==> onSaveInstanceState() ")
+        logcat { "onSaveInstanceState()" }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Timber.i("==> onDestroyView() ")
+        logcat { "onDestroyView()" }
     }
 
     companion object {
